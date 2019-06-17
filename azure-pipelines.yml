@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  GOPATH: '$(system.defaultWorkingDirectory)/fossul' # Go workspace path
+  GOPATH: '$(system.defaultWorkingDirectory)/gopath' # Go workspace path
   GOBIN:  '$(GOPATH)/bin' # Go binaries path
   PLUGIN_DIR: '$(GOBIN)'
 #  GOBIN:  '$(GOPATH)/bin' # Go binaries path
