@@ -41,7 +41,8 @@ steps:
         curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
         dep ensure
     fi
-    $(GOPATH)/fossul-build.sh
+    #$(GOPATH)/fossul-build.sh
+    go test src/engine/util
     #go build -v .
   workingDirectory: '$(modulePath)'
   displayName: 'Get dependencies, then build'
