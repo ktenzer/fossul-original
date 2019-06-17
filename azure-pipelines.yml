@@ -16,7 +16,7 @@ variables:
 #  GOBIN:  '$(GOPATH)/bin' # Go binaries path
 #  GOROOT: '/usr/local/go1.11' # Go installation path
 #  GOPATH: '$(system.defaultWorkingDirectory)/gopath' # Go workspace path
-  modulePath: '$(GOPATH)' # Path to the module's code
+  modulePath: '$(GOPATH)/gopath' # Path to the module's code
 
 steps:
 - script: |
@@ -44,6 +44,7 @@ steps:
         dep ensure
     fi
     #$(GOPATH)/fossul-build.sh
+    ls -R $(system.defaultWorkingDirectory
     go test fossul/src/engine/util
     #go build -v .
   workingDirectory: '$(modulePath)'
