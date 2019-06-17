@@ -44,7 +44,7 @@ steps:
         dep ensure
     fi
     #$(GOPATH)/fossul-build.sh
-    go test engine/util
+    go test fossul/src/engine/util
     #go build -v .
   workingDirectory: '$(modulePath)'
   displayName: 'Get dependencies, then build'
