@@ -22,6 +22,8 @@ steps:
 - script: |
     echo "GOBIN $(GOBIN)"
     echo "GOPATH $(GOPATH)"
+    which ls
+    exit 1
     echo "code $(GOPATH)/src/github.com/$(build.repository.name)"#
     #ls -R $(system.defaultWorkingDirectory)
     mkdir -p '$(GOPATH)'
