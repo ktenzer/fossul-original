@@ -10,9 +10,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
+  GOPATH: '$(system.defaultWorkingDirectory)' # Go workspace path
   GOBIN:  '$(GOPATH)/bin' # Go binaries path
-  GOROOT: '/usr/local/go1.11' # Go installation path
-  GOPATH: '$(system.defaultWorkingDirectory)/gopath' # Go workspace path
+#  GOBIN:  '$(GOPATH)/bin' # Go binaries path
+#  GOROOT: '/usr/local/go1.11' # Go installation path
+#  GOPATH: '$(system.defaultWorkingDirectory)/gopath' # Go workspace path
   modulePath: '$(GOPATH)/src/fossul' # Path to the module's code
 
 steps:
