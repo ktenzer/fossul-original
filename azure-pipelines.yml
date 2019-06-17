@@ -12,6 +12,7 @@ pool:
 variables:
   GOPATH: '$(system.defaultWorkingDirectory)' # Go workspace path
   GOBIN:  '$(GOPATH)/bin' # Go binaries path
+  PLUGIN_DIR: '$(GOBIN)'
 #  GOBIN:  '$(GOPATH)/bin' # Go binaries path
 #  GOROOT: '/usr/local/go1.11' # Go installation path
 #  GOPATH: '$(system.defaultWorkingDirectory)/gopath' # Go workspace path
@@ -40,6 +41,7 @@ steps:
         curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
         dep ensure
     fi
+    $(GOPATH)/fossul-build.sh
     #go build -v .
   workingDirectory: '$(modulePath)'
   displayName: 'Get dependencies, then build'
