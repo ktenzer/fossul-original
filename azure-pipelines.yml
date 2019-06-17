@@ -22,8 +22,8 @@ steps:
 - script: |
     echo "GOBIN $(GOBIN)"
     echo "GOPATH $(GOPATH)"
-    echo "code $(GOPATH)/src/github.com/$(build.repository.name)"
-    ls -R $(GOPATH)
+    echo "code $(GOPATH)/src/github.com/$(build.repository.name)"#
+    ls -R $(system.defaultWorkingDirectory)
     mkdir -p '$(GOBIN)'
     mkdir -p '$(GOPATH)/pkg'
     shopt -s extglob
