@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  GOPATH: '$(system.defaultWorkingDirectory)' # Go workspace path
+  GOPATH: '$(system.defaultWorkingDirectory)/fossul' # Go workspace path
   GOBIN:  '$(GOPATH)/bin' # Go binaries path
   PLUGIN_DIR: '$(GOBIN)'
 #  GOBIN:  '$(GOPATH)/bin' # Go binaries path
@@ -23,14 +23,11 @@ steps:
     echo "GOBIN $(GOBIN)"
     echo "GOPATH $(GOPATH)"
     echo "code $(GOPATH)/src/github.com/$(build.repository.name)"
-    #ls -R $(GOPATH)
+    ls -R $(GOPATH)
     mkdir -p '$(GOBIN)'
     mkdir -p '$(GOPATH)/pkg'
-    mkdir -p '$(modulePath)/src/fossul'
     shopt -s extglob
     shopt -s dotglob
-    mv  $(GOPATH) '$(modulePath)/src/fossul'
-    ls -R '$(modulePath)'
     echo '##vso[task.prependpath]$(GOBIN)'
     echo '##vso[task.prependpath]$(GOROOT)/bin'
   displayName: 'Set up the Go workspace'
