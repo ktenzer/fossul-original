@@ -20,7 +20,7 @@ steps:
     echo "GOBIN $(GOBIN)"
     echo "GOPATH $(GOPATH)"
     echo "code $(GOPATH)/src/github.com/$(build.repository.name)"
-    ls $(GOPATH)/src/fossul
+    ls -R $(GOPATH)
     mkdir -p '$(GOBIN)'
     mkdir -p '$(GOPATH)/pkg'
     mkdir -p '$(modulePath)'
