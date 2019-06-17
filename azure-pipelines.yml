@@ -23,9 +23,13 @@ steps:
     echo "GOBIN $(GOBIN)"
     echo "GOPATH $(GOPATH)"
     echo "code $(GOPATH)/src/github.com/$(build.repository.name)"#
-    ls -R $(system.defaultWorkingDirectory)
+    #ls -R $(system.defaultWorkingDirectory)
+    mkdir -p '$(GOPATH)'
     mkdir -p '$(GOBIN)'
     mkdir -p '$(GOPATH)/pkg'
+    mkdir -p '$(GOPATH)/src/fossul'
+    mv $(system.defaultWorkingDirectory)/* $(system.defaultWorkingDirectory)/gopath/src/fossul
+    ls -R $(system.defaultWorkingDirectory)
     shopt -s extglob
     shopt -s dotglob
     echo '##vso[task.prependpath]$(GOBIN)'
