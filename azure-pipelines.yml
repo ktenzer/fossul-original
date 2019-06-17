@@ -23,6 +23,8 @@ steps:
     echo "GOBIN $(GOBIN)"
     echo "GOPATH $(GOPATH)"
     which ls
+    ls /usr
+    ls /usr/bin
     exit 1
     echo "code $(GOPATH)/src/github.com/$(build.repository.name)"#
     #ls -R $(system.defaultWorkingDirectory)
