@@ -16,7 +16,7 @@ variables:
 #  GOBIN:  '$(GOPATH)/bin' # Go binaries path
 #  GOROOT: '/usr/local/go1.11' # Go installation path
 #  GOPATH: '$(system.defaultWorkingDirectory)/gopath' # Go workspace path
-  modulePath: '$(GOPATH)/src' # Path to the module's code
+  modulePath: '$(GOPATH)/src/fossul' # Path to the module's code
 
 steps:
 - script: |
@@ -38,7 +38,7 @@ steps:
 - script: |
     go version
     #go get -v -t -d ./...
-    if [ -f $(GOPATH)/src/fossul/Gopkg.toml ]; then
+    if [ -f Gopkg.toml ]; then
         echo "HELLO 111111"
         curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
         dep ensure
@@ -49,5 +49,5 @@ steps:
     $(GOPATH)/src/fossul/fossul-app-build.sh
     $(GOPATH)/src/fossul/fossul-storage-build.sh
     #go build -v .
-  workingDirectory: '$(GOPATH)/src'
+  workingDirectory: '$(GOPATH)/src/fossul'
   displayName: 'Get dependencies, then build'
