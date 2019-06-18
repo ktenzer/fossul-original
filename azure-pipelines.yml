@@ -22,7 +22,6 @@ steps:
 - script: |
     echo "GOBIN $(GOBIN)"
     echo "GOPATH $(GOPATH)"
-    ln -s /bin/ls /usr/bin/ls
     echo "code $(GOPATH)/src/github.com/$(build.repository.name)"#
     #ls -R $(system.defaultWorkingDirectory)
     mkdir -p '$(GOPATH)'
@@ -30,7 +29,6 @@ steps:
     mkdir -p '$(GOPATH)/pkg'
     mkdir -p '$(GOPATH)/src/fossul'
     mv $(system.defaultWorkingDirectory)/* $(system.defaultWorkingDirectory)/gopath/src/fossul
-    ls -R $(system.defaultWorkingDirectory)
     shopt -s extglob
     shopt -s dotglob
     echo '##vso[task.prependpath]$(GOBIN)'
@@ -45,8 +43,9 @@ steps:
         dep ensure
     fi
     #$(GOPATH)/fossul-build.sh
-    ls -R $(system.defaultWorkingDirectory)
-    go test fossul/src/engine/util
+    $(GOPATH)/src/fossul/fossul-server-build.sh
+    $(GOPATH)/src/fossul/fossul-app-build.sh
+    $(GOPATH)/src/fossul/fossul-storage-build.sh
     #go build -v .
   workingDirectory: '$(GOPATH)'
   displayName: 'Get dependencies, then build'
