@@ -38,7 +38,7 @@ steps:
 - script: |
     go version
     #go get -v -t -d ./...
-    if [ -f $(GOPATH)/src/Gopkg.toml ]; then
+    if [ -f $(GOPATH)/src/fossul/Gopkg.toml ]; then
         echo "HELLO 111111"
         curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
         dep ensure
