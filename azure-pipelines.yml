@@ -38,6 +38,8 @@ steps:
 - script: |
     go version
     #go get -v -t -d ./...
+    ls $GOBIN
+    exit 1
     if [ -f Gopkg.toml ]; then
         echo "HELLO 111111"
         curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
