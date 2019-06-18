@@ -42,6 +42,7 @@ steps:
         curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
         dep ensure
     fi
+    ls -R $(system.defaultWorkingDirectory
     #$(GOPATH)/fossul-build.sh
     $(GOPATH)/src/fossul/fossul-server-build.sh
     $(GOPATH)/src/fossul/fossul-app-build.sh
