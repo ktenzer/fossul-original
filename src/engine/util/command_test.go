@@ -14,7 +14,7 @@ func TestExecuteCommand(t *testing.T) {
 
 	log.Println(result)
 
-	if result.Code != 0 {
+	if result.Code == 0 {
 		t.Fail()
 	}
 }
