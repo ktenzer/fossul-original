@@ -38,7 +38,8 @@ steps:
 - script: |
     go version
     #go get -v -t -d ./...
-    if [ -f Gopkg.toml ]; then
+    if [ -f $(GOPATH)/src/Gopkg.toml ]; then
+        echo "HELLO 111111"
         curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
         dep ensure
     fi
@@ -48,5 +49,5 @@ steps:
     $(GOPATH)/src/fossul/fossul-app-build.sh
     $(GOPATH)/src/fossul/fossul-storage-build.sh
     #go build -v .
-  workingDirectory: '$(GOPATH)'
+  workingDirectory: '$(GOPATH)/src'
   displayName: 'Get dependencies, then build'
