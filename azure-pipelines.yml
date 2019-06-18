@@ -48,5 +48,5 @@ steps:
     $(GOPATH)/src/fossul/fossul-app-build.sh
     $(GOPATH)/src/fossul/fossul-storage-build.sh
     #go build -v .
-  workingDirectory: '$(GOPATH)'
+  workingDirectory: '$(GOPATH)/src'
   displayName: 'Get dependencies, then build'
